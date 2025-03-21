@@ -4,9 +4,11 @@ function Cadastro() {
     const[input, setInput] = useState('');
     const[tarefas, setTarefas] = useState([]);
     const[nome, setNome] = useState(localStorage.getItem('@nome'));
+    const[cor, setCor] = useState(localStorage.getItem('@cor'));
 
     const tarefasStorage = localStorage.getItem('@tarefa');
 
+    /// Pega informação do Prompt e salva no LocalStorage
     useEffect(() => {
         if(!nome){
             const nomeStorage = prompt('Digite seu nome: ');
@@ -15,26 +17,36 @@ function Cadastro() {
                 localStorage.setItem('@nome', nomeStorage);
             }
         }
-    }, [])
+        document.body.style.background = cor;
+    }, [cor])
 
+    /// Pega informações do LocalStorage
     useEffect(() => {
         if(tarefasStorage){
             setTarefas(JSON.parse(tarefasStorage));
         }
     }, [])
 
+    /// Função para salvar dado no LocalStorage
     useEffect(() => {
         
-        // localStorage.setItem('@nome', JSON.stringify(nomeStorage))
         localStorage.setItem('@tarefa', JSON.stringify(tarefas));
 
     },[tarefas]);
 
+    /// Função pegar valor do input
     function handleRegistro(e) {
         e.preventDefault();
         
         setTarefas([...tarefas, input])
         setInput('')
+    }
+
+    /// Função salvar cor escolhida no LocalStorage
+    function handleCor(e) {
+        const novaCor = e.target.value;
+        setCor(novaCor);
+        localStorage.setItem('@cor', novaCor);
     }
 
     return (
@@ -55,6 +67,37 @@ function Cadastro() {
                     <li key={tarefa}>{tarefa}</li>
                 ))}
             </ul>
+            <div>
+                <ul>
+                    <li>
+                        <input
+                        type="radio"
+                        value='cadetblue'
+                        checked={cor === 'cadetblue'}
+                        onChange={handleCor}
+                        ></input>
+                        Cadet blue
+                    </li>
+                    <li>
+                        <input
+                        type="radio"
+                        value='darkcyan'
+                        checked={cor === 'darkcyan'}
+                        onChange={handleCor}
+                        ></input>
+                        Ciano
+                    </li>
+                    <li>
+                        <input
+                        type="radio"
+                        value='darkgrey'
+                        checked={cor === 'darkgrey'}
+                        onChange={handleCor}
+                        ></input>
+                        Cinza
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 
