@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Cadastro() {
     const[input, setInput] = useState('');
     const[tarefas, setTarefas] = useState([]);
+
+    const tarefasStorage = localStorage.getItem('@tarefa');
+
+    useEffect(() => {
+        if(tarefasStorage){
+            setTarefas(JSON.parse(tarefasStorage));
+        }
+    }, [])
+
+    useEffect(() => {
+        
+        localStorage.setItem('@tarefa', JSON.stringify(tarefas));
+
+    },[tarefas]);
 
     function handleRegistro(e) {
         e.preventDefault();
