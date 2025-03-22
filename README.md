@@ -30,3 +30,11 @@ Inicie o servidor
 ```bash
   npm run start
 ```
+
+## Imagens do resultado
+
+<img src="..\src\assets\screenshot.png">
+
+<img src="..\src\assets\screenshot2.png">
+
+<img src="..\src\assets\screenshot3.png">
