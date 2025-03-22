@@ -31,10 +31,12 @@ Inicie o servidor
   npm run start
 ```
 
-## Imagens do resultado
 
-<img src="..\src\assets\screenshot.png">
+## Screenshots
 
-<img src="..\src\assets\screenshot2.png">
+![Screenshot 1](https://github.com/Richardy-Rodrigues/FirstSite_web_react/blob/main/src/assets/screenshot.png?raw=true)
 
-<img src="..\src\assets\screenshot3.png">
+![Screenshot 1](https://github.com/Richardy-Rodrigues/FirstSite_web_react/blob/main/src/assets/screenshot2.png?raw=true)
+
+![Screenshot 1](https://github.com/Richardy-Rodrigues/FirstSite_web_react/blob/main/src/assets/screenshot3.png?raw=true)
+
